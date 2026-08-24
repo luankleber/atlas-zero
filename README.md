@@ -1,7 +1,37 @@
-## Robot Package Template
+# Atlas Zero
 
-This is a GitHub template. You can make your own copy by clicking the green "Use this template" button.
+Pacote ROS 2 para simulação de um robô quadrado em Gazebo.
 
-It is recommended that you keep the repo/package name the same, but if you do change it, ensure you do a "Find all" using your IDE (or the built-in GitHub IDE by hitting the `.` key) and rename all instances of `my_bot` to whatever your project's name is.
+## Sobre
 
-Note that each directory currently has at least one file in it to ensure that git tracks the files (and, consequently, that a fresh clone has direcctories present for CMake to find). These example files can be removed if required (and the directories can be removed if `CMakeLists.txt` is adjusted accordingly).
+`atlas-zero` é um pacote ROS 2 que define e simula um robô com formato quadrado (chassis) movido por quatro rodas, utilizando o simulador Gazebo. O projeto utiliza URDF/Xacro para descrever a geometria do robô e inclui configurações para simulação física em ambiente controlado.
+
+## Tecnologias
+
+- **ROS 2** (Robot Operating System)
+- **Gazebo** - Simulador de robótica
+- **URDF/Xacro** - Descrição de robôs
+- **ament_cmake** - Build system para ROS 2
+
+## Estrutura
+
+```
+atlas-zero/
+├── launch/           # Arquivos de lançamento (launch files)
+│   ├── rsp.launch.py       # Lançamento do robot_state_publisher
+│   └── launch_sim.launch.py # Lançamento completo com Gazebo
+├── description/       # Descrição do robô em Xacro/URDF
+├── worlds/           # Mundos Gazebo (SDF)
+├── config/           # Configurações do projeto
+└── CMakeLists.txt    # Arquivos de build
+```
+
+## Uso
+
+Para iniciar a simulação:
+
+```bash
+ros2 launch atlas-zero launch_sim.launch.py
+```
+
+O robô será espalhado no mundo Gazebo usando o arquivo `robot.urdf.xacro` como descrição.
